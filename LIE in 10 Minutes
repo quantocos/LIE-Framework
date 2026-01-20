@@ -1,0 +1,249 @@
+# LIE in 10 Minutes
+
+*A practical introduction to Language Interface Engineering.*
+
+---
+
+## Minute 0–1: The Problem
+
+LLMs don’t execute intent.
+They **continue text**.
+
+When you write:
+
+> “Analyze this carefully and give the best answer”
+
+You are:
+
+* relying on undocumented behavior
+* assuming reasoning depth
+* hoping for consistency
+
+This works in demos, not in systems.
+
+**LIE fixes this by engineering the language layer.**
+
+---
+
+## Minute 1–2: The Core Idea
+
+LIE treats **language as an interface**, not a conversation.
+
+Just like:
+
+* APIs have contracts
+* Functions have inputs/outputs
+* Programs have validation
+
+**Prompts must have structure.**
+
+A LIE prompt is an **executable specification**.
+
+---
+
+## Minute 2–3: The 8-Layer Structure (ULPA)
+
+Every LIE prompt uses **eight layers**, in this order:
+
+1. **META** – What success means
+2. **ROLE** – What function the model performs
+3. **CAPABILITIES** – What the model can/cannot do
+4. **CONTEXT** – Read-only knowledge
+5. **INPUT** – Data contract
+6. **PROCESS** – How transformation happens
+7. **OUTPUT** – Exact output format
+8. **VALIDATION** – How correctness is checked
+
+If one is missing → the prompt is incomplete.
+
+---
+
+## Minute 3–4: Minimal Example (Human-Readable)
+
+**Task:** Extract facts from text.
+
+```
+META:
+Objective: Extract verifiable facts
+Type: EXTRACTIVE
+Success: No inference, no hallucination
+
+ROLE:
+Extractor
+
+CAPABILITIES:
+Reasoning: medium
+Instruction adherence: strict
+
+CONTEXT:
+Facts are verifiable statements explicitly present in the text
+
+INPUT:
+Article text is provided below
+
+PROCESS:
+1. Scan for named entities
+2. Identify factual claims
+3. List only explicit statements
+
+OUTPUT:
+JSON with field:
+- facts: list of strings
+
+VALIDATION:
+- facts must be a list
+- each fact ≤ 50 words
+- if uncertain, return empty list
+```
+
+This is **not persuasion**.
+This is **interface design**.
+
+---
+
+## Minute 4–5: Why This Works
+
+LIE works because it:
+
+* removes ambiguity
+* constrains generation space
+* aligns with probabilistic behavior
+* makes failure explicit
+
+You are not “telling the model to be smart.”
+You are **boxing it into a useful shape**.
+
+---
+
+## Minute 5–6: DSL Version (Machine-Readable)
+
+The same prompt as structured data:
+
+```yaml
+meta:
+  objective: Extract verifiable facts
+  type: EXTRACTIVE
+  success_criteria:
+    - No hallucinations
+
+role:
+  identity: Extractor
+
+capabilities:
+  reasoning_depth: medium
+  instruction_adherence: strict
+
+context:
+  knowledge:
+    fact_definition: Explicit verifiable statements
+
+input:
+  schema:
+    article_text: string
+
+process:
+  steps:
+    - Scan for entities
+    - Identify factual claims
+    - List explicitly stated facts
+
+output:
+  format: json
+  fields:
+    facts: list[string]
+
+validation:
+  structural:
+    - facts is list
+  constraints:
+    - Each fact <= 50 words
+  fallback: Return empty list
+```
+
+This enables:
+
+* linting
+* validation
+* version control
+* automation
+
+---
+
+## Minute 6–7: Prompt Modules
+
+Instead of rewriting logic, LIE uses **modules**.
+
+Examples:
+
+* `problem_decomposition`
+* `assumption_extraction`
+* `risk_analysis`
+* `output_normalization`
+
+Modules are:
+
+* reusable
+* composable
+* versioned
+
+Think **functions**, not paragraphs.
+
+---
+
+## Minute 7–8: Agents Speak LIE Too
+
+Agents communicate using the **same structure**.
+
+* Planner → Executor → Verifier
+* Output of one = INPUT of next
+* Validation gates every handoff
+
+This enables **deterministic agent orchestration**.
+
+No “agent magic.”
+Just contracts.
+
+---
+
+## Minute 8–9: What Changes in Practice
+
+Before LIE:
+
+* prompt tweaking
+* unpredictable outputs
+* fragile automations
+
+After LIE:
+
+* prompts reviewed like code
+* failures handled explicitly
+* portability across models
+* organizational standards
+
+**Prompting becomes engineering.**
+
+---
+
+## Minute 9–10: The Mental Model
+
+> You don’t ask an AI to do things.
+> You **design a language interface it cannot escape**.
+
+That’s LIE.
+
+---
+
+## What to Do Next
+
+1. Start with ULPA for every prompt
+2. Store prompts in version control
+3. Use DSL for anything reused
+4. Add validation before trusting output
+5. Treat prompts as infrastructure
+
+---
+
+### One-Line Summary
+
+**LIE turns “talking to AI” into “programming with language.”**
+
