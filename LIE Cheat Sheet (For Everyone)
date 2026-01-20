@@ -1,0 +1,250 @@
+# LIE Cheat Sheet (For Everyone)
+
+**How to get consistent, useful results from AI — without technical knowledge**
+
+> You don’t need to know how AI works.
+> You just need to tell it **what box it must stay inside**.
+
+This cheat sheet shows you how.
+
+---
+
+## The Big Idea (1 minute)
+
+AI doesn’t understand meaning.
+It **predicts words** based on patterns.
+
+So instead of *asking nicely*, you must:
+
+* tell it **what job it is doing**
+* give it **only the information it needs**
+* tell it **exactly what the answer should look like**
+* tell it **what to do if it’s unsure**
+
+That’s it.
+
+---
+
+## The 8 Things Every Good AI Request Needs
+
+Think of this as **filling out a form**, not having a chat.
+
+### 1️⃣ What do you want? (Goal)
+
+Be very specific.
+
+❌ *“Help me understand this”*
+✅ *“Summarize this text in 5 bullet points”*
+
+---
+
+### 2️⃣ What role should AI play?
+
+Tell AI **what job it is doing**.
+
+Examples:
+
+* Analyst
+* Editor
+* Teacher
+* Planner
+* Checker
+* Writer
+
+✅ *“You are an editor checking grammar.”*
+
+---
+
+### 3️⃣ What should it NOT do?
+
+This is very important.
+
+Examples:
+
+* No guessing
+* No creativity
+* No opinions
+* No outside knowledge
+
+✅ *“Do not add information that is not provided.”*
+
+---
+
+### 4️⃣ Give background (only facts)
+
+This is **information**, not instructions.
+
+Examples:
+
+* “This is for a school project.”
+* “This text is about health.”
+* “The audience is beginners.”
+
+❌ Don’t say what to do here
+✅ Just say what it needs to know
+
+---
+
+### 5️⃣ Give the input clearly
+
+Always separate input from instructions.
+
+Use markers like:
+
+```
+TEXT START
+...
+TEXT END
+```
+
+This prevents confusion.
+
+---
+
+### 6️⃣ Tell it how to work (simple steps)
+
+Don’t say *“think carefully”*.
+Say **what steps to follow**.
+
+Example:
+
+1. Read the text
+2. Identify key points
+3. Remove repetition
+4. Rewrite simply
+
+---
+
+### 7️⃣ Tell it what the answer must look like
+
+This is the most ignored step.
+
+Examples:
+
+* “Give 5 bullet points”
+* “Answer in a table”
+* “Reply in short paragraphs”
+* “Only yes or no”
+
+AI behaves much better when shape is fixed.
+
+---
+
+### 8️⃣ Tell it what to do if unsure
+
+This stops hallucinations.
+
+Examples:
+
+* “If unsure, say ‘Not enough information’”
+* “If missing data, ask one question”
+* “If confidence is low, stop”
+
+---
+
+## One Simple Template (Copy–Paste Friendly)
+
+You can use this for **almost anything**:
+
+```
+GOAL:
+[What exactly you want]
+
+ROLE:
+[What job AI is doing]
+
+DO NOT:
+[List what AI must not do]
+
+BACKGROUND:
+[Any facts or context]
+
+INPUT:
+[Your text or data]
+
+STEPS:
+1.
+2.
+3.
+
+OUTPUT FORMAT:
+[How the answer should look]
+
+IF UNSURE:
+[What AI should do]
+```
+
+---
+
+## Real Example (Simple)
+
+**Task:** Improve an email
+
+```
+GOAL:
+Rewrite the email to sound professional and clear
+
+ROLE:
+You are a professional editor
+
+DO NOT:
+Do not change the meaning
+Do not add new information
+
+BACKGROUND:
+This is a work email to a client
+
+INPUT:
+EMAIL START
+Hi, pls check this fast and reply ASAP.
+EMAIL END
+
+STEPS:
+1. Fix grammar
+2. Improve tone
+3. Keep it short
+
+OUTPUT FORMAT:
+Single rewritten email
+
+IF UNSURE:
+Keep the original sentence structure
+```
+
+---
+
+## Common Mistakes to Avoid
+
+❌ Talking emotionally
+❌ Giving mixed instructions
+❌ Asking multiple tasks at once
+❌ Letting AI decide the format
+❌ Assuming AI knows your situation
+
+---
+
+## Mental Shortcut (Remember This)
+
+> **Tell AI:**
+>
+> * who it is
+> * what it must do
+> * what it must not do
+> * what the answer must look like
+
+That’s LIE — without the name.
+
+---
+
+## Final Truth (Very Important)
+
+AI is powerful **only when boxed in**.
+
+If you leave space, it fills it with guesses.
+If you give structure, it gives results.
+
+---
+
+### One-Line Rule
+
+**Less chatting. More framing.**
